@@ -6,6 +6,7 @@ app = FastAPI()
 
 # 读取 API Key（从 Koyeb 环境变量）
 LLM_PROXY_API_KEY = os.getenv("LLM_PROXY_API_KEY")
+print(f"DEBUG: Using API Key - {LLM_PROXY_API_KEY}")
 
 # LLMProxy API 地址
 LLM_PROXY_URL = "https://a061igc186.execute-api.us-east-1.amazonaws.com/dev"
@@ -33,6 +34,7 @@ async def query(request: Request):
         "session_id": "RocketChatSession",
         "rag_usage": False
     }
+
 
     try:
         response = requests.post(LLM_PROXY_URL, json=payload, headers=headers)
