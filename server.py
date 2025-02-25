@@ -11,7 +11,7 @@ print(f"DEBUG: Using API Key - {LLM_PROXY_API_KEY}")
 # LLMProxy API 地址
 LLM_PROXY_URL = "https://a061igc186.execute-api.us-east-1.amazonaws.com/dev"
 
-@app.post("/query")
+@app.post("/")
 async def query(request: Request):
     data = await request.json()
     user_message = data.get("message", "")
